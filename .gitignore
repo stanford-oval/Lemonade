@@ -1,0 +1,27 @@
+*.tar.gz
+*.bz2
+__pycache__
+config.mk
+project_config.mk
+.idea/
+.vscode/
+.DS_Store
+.ipynb_checkpoints
+*~
+*.swp
+*.tmp
+
+API_KEYS
+
+workdir/
+workdir
+*.log
+
+# ChainLite
+prompt_logs.jsonl
+
+# pixi environments
+.pixi
+*.egg-info
+
+.diskcache
