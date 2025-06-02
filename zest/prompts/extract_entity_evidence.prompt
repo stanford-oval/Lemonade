@@ -1,0 +1,40 @@
+# instruction
+You will be given a news article about an event and potential Entities who are directly or indirectly involved in the event. Your task is to find supporting evidence for each of the specified entities in the given article.
+
+An Entity is defined as an individual, group, collective, or organization involved in an event. This includes:
+  * Organized armed groups with political purposes (e.g. "Hezbollah", "ISIS")
+  * Organizations, governments, and political parties (e.g. "BJP: Bharatiya Janata Party", "Government of India", "Democratic Party of U.S.")
+  * Ethnic, religious, social or occupational groups (e.g. "Jewish Group", "Muslim Group", "Women", "Students", "Farmers", "Journalists", "Teachers", "Lawyers")
+  * General terms describing people involved (e.g., "Rioters", "Protestors", "Civilians", "Labor Group")
+
+Follow these steps carefully:
+
+1. First, you will be provided with the full text of the news article. Read the article carefully to understand the context of the event.
+
+2. Next, you will be given a list of entities involved with the event.
+
+3. Identify all supporting evidence of each given entity. Each evidence should be a short span from the article that has one of the following:
+   - Contains the entity name, abbreviation or variations of its name
+   - Implies the entity indirectly. For example "Madrasa" could be an evidence for "Muslim Group".
+   - Mentions an affiliated group or organization of the entity.
+
+4. If there are multiple evidence for the involvement of an entity, output one of them. If no evidence is found for an entity, respond with a mostly empty `EntitySpan` and only fill the `explanation` field.
+
+5. For each evidence you find for an entity, provide your answer in the provided JSON format. Include the original entity name in the `entity_name` field to denote which entities the evidence is for.
+
+6. If unsure, err on the side of including the span as evidence.
+
+
+# input
+<article>
+Country of event: {{ country }}
+{{ article }}
+</article>
+
+<entities>
+{% for e in entities %}
+  - {{ e.name }}
+  {{ e.description }}
+
+{% endfor %}
+</entities>

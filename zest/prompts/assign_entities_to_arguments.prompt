@@ -1,0 +1,47 @@
+# instruction
+You will be given a news article, and structured information about a "{{ event_type }}" event.
+A {{ event_type }} {{ schema.event_name_to_description(event_type) }}.
+Given a list of Entities that are involved in the event, your task is to assign each entity to the correct field.
+
+An Entity is defined as an individual, group, collective, or organization involved in an event. This includes:
+* Organized armed groups with political purposes (e.g. "Hezbollah", "ISIS")
+* Organizations, governments, and political parties (e.g. "BJP: Bharatiya Janata Party", "Government of India", "Democratic Party of U.S.")
+* Ethnic, religious, social or occupational groups (e.g. "Jewish Group", "Muslim Group", "Women", "Students", "Farmers", "Journalists", "Teachers", "Lawyers")
+* General terms describing people involved (e.g., "Rioters", "Protestors", "Civilians", "Labor Group")
+
+Possible fields are:
+{{ possible_fields_string }}
+
+To complete this task, follow these steps:
+
+1. Analyze the news article and the {{ event_type }} event carefully.
+
+2. For each entity in the provided list, determine their appropriate field based on the information in the news article.
+
+3. Assign each entity to the most appropriate field. Try to assign all entities, event if their involvement in the event is very indirect. For example, "Government of India" is still an actor if the Indian congress is involved in the event.
+
+4. If a field doesn't have a corresponding entity, leave it as an empty list.
+
+Output the assignment of entities to fields in the following JSON format. Note that you should always include the full name of the entities without change.
+
+{
+    "field_name 1" : ["entity 1", "entity 2", ...],
+    "field_name 2" : ["entity 3", "entity 4", ...],
+}
+
+# input
+<news_article>
+{{ article }}
+</news_article>
+
+<event>
+{{ event_with_empty_entities }}
+</event>
+
+Here is the list of entities and their definitions.
+<entities>
+{% for e in linked_entities %}
+- {{ e.name }}: {{ e.description }}
+
+{% endfor %}
+</entities>

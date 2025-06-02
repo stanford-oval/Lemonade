@@ -1,0 +1,111 @@
+# instruction
+You will be given a news article about an event. Your task is to identify all potential Entities who are directly or indirectly involved in the event. Then, write a very short Wikipedia paragraph describing each entity in the general sense.
+
+An Entity is defined as an individual, group, collective, or organization involved in an event. This includes:
+  * Organized armed groups with political purposes (e.g. "Hezbollah", "ISIS")
+  * Organizations, governments, and political parties (e.g. "BJP: Bharatiya Janata Party", "Government of India", "Democratic Party of U.S.")
+  * Ethnic, religious, social or occupational groups (e.g. "Jewish Group", "Muslim Group", "Women", "Students", "Farmers", "Journalists", "Teachers", "Lawyers")
+  * General terms describing people involved (e.g., "Rioters", "Protestors", "Civilians", "Labor Group")
+
+When identifying Entities, follow these guidelines:
+
+1. Be as thorough as possible. Think about what groups are implicitly or indirectly involved in the event. Ask yourself:
+  - Can the identity group (religion, gender, occupation etc.) of the victims or perpetrators be inferred? If so, you should create an entity for that group.
+  - Does the event involve workers or unions, or is it a labor issue? If so, you should add "Labor Group" as an entity.
+  - Does the event in any way involve students, school or university? If so, you should add "Students" as an entity.
+  - Does the event involve women in any way? If so, you should add "Women" as an entity.
+  - Does the event involve civilians? If so, you should add "Civilians" as an entity.
+  - Is the event a protest or a riot? If so, you should add "Protestors" or "Rioters" as an entity.
+  - Does the event involve an unknown or unspecified group? If so, you should add one of "Unidentified Armed Group", "Unidentified Gang", "Unidentified Communal Group" etc. as an entity.
+  - Given the country the event is taking place in, what are the major political parties, religious groups, armed groups, or social movements that could be involved? Consider cultural context of the region, like common religions, ethnicities etc.
+  - And the like.
+
+2. Include alternative names or spellings of each entity if mentioned in the article
+
+3. For individuals, infer their role, affiliation, or social group as explained above.
+
+4. For each entity you identify, think about its affiliated, parent or member groups. For example, if a politician is mentioned, think about their political party or any other group they are associated with. If a union is mentioned, think about the workers or labor groups it represents.
+
+Use a scratchpad to think through your process:
+
+<scratchpad>
+[Your thought process here, including your answer to the above questions]
+</scratchpad>
+
+Then, present your output in the following JSON format. Output as many entities as you can possibly think of.
+<entity_list>
+{
+    "entity 1": "Wikipedia paragraph 1",
+    "entity 2": "Wikipedia paragraph 2",
+    ...
+}
+</entity_list>
+
+# input
+Country of event: India
+Article: Opposition DMDK chief Premalatha suggests Stalin pick 'senior' DMK minister as Deputy CM
+PTI
+Last Updated : 25 July 2024, 22:05 IST
+Chennai: Amid continuing speculation that 46-year-old Udhayanidhi Stalin could be elevated to the post of deputy chief minister in Tamil Nadu, DMDK General Secretary Premalatha, an ally of the main opposition AIADMK, on Thursday suggested that the ruling DMK pick one of its senior ministers for the post.
+
+There has been talk for some time that Chief Minister M K Stalin's minister-son Udhayanidhi, who has been in the cabinet for just one-and-a-half years, could be elevated to the second highest post in the government. Responding to reporters' questions about it, Premalatha -- without taking any names -- said that one among the several senior ministers in the cabinet could be made Stalin's deputy.
+
+"The chief minister can do good for the people only if he remains healthy. So, we urge him on behalf of the DMDK to elevate one of his senior ministers as deputy chief minister," Premalatha told the media, after leading a protest against the ruling dispensation over the hike in power tariff.
+
+Referring to TN BSP chief K Armstrong's recent murder and other crimes in the state, she complained about the law-and-order situation in Tamil Nadu, saying there is no protection for the people. "This is condemnable. The people have been affected in many ways. But the chief minister is going around creating an impression that everything is alright. This is akin to concealing the entire pumpkin in the rice (bowl)," the DMDK leader said, referring to a regional adage, and warned that people are watching what is happening in the state.
+
+Though the AIADMK has not overtly reacted to Premalatha's comments, party General Secretary Edappadi K Palaniswami had commented on similar lines during the Lok Sabha elections, saying that the DMK would only give high positions in the party and government to those from the first family. "But unlike in the DMK, an ordinary person like me (in AIADMK) was able to become the chief minister," he had pointed out.
+
+# output
+<scratchpad>
+From the article, we have several entities directly or indirectly involved:
+
+DMDK (Desiya Murpokku Dravida Kazhagam): Mentioned as the opposition party and ally of AIADMK.
+Premalatha: She is the DMDK General Secretary who made the suggestion.
+Udhayanidhi Stalin: The 46-year-old minister in the Tamil Nadu cabinet and son of Chief Minister M. K. Stalin.
+M. K. Stalin: Chief Minister of Tamil Nadu and a senior leader of DMK.
+DMK (Dravida Munnetra Kazhagam): The ruling party in Tamil Nadu.
+Senior DMK Ministers: Implied group within DMK’s government who could be elevated.
+AIADMK (All India Anna Dravida Munnetra Kazhagam): The main opposition party in Tamil Nadu and ally of DMDK.
+TN BSP (Bahujan Samaj Party) and its chief K Armstrong: Mentioned as a victim of a recent murder.
+BSP (Bahujan Samaj Party): National-level party in India.
+People/Civilians: General public impacted by governance, law and order.
+Protestors: Premalatha led a protest against the ruling dispensation over the hike in power tariff.
+Additional possible entities:
+
+"First Family" within DMK (M.K. Stalin’s family) is mentioned, but this is more a reference than a distinct entity.
+"Ruling dispensation" refers to the current ruling party/government, which is DMK, already listed.
+Entities Final List:
+
+- DMDK
+- Premalatha
+- Udhayanidhi Stalin
+- M. K. Stalin
+- DMK
+- Senior DMK Ministers
+- AIADMK
+- TN BSP Chief K Armstrong
+- BSP
+- Civilians
+- Protestors
+</scratchpad>
+
+<entity_list>
+{
+  "Desiya Murpokku Dravida Kazhagam (DMDK)": "Desiya Murpokku Dravida Kazhagam is a regional political party in the Indian state of Tamil Nadu, founded with a focus on social welfare and development. It emerged as a significant force challenging the established Dravidian parties and has participated in various electoral alliances.",
+  "Premalatha": "Premalatha is a politician and the General Secretary of the Desiya Murpokku Dravida Kazhagam (DMDK). She is known for her active participation in the party’s organizational activities and public demonstrations.",
+  "Udhayanidhi Stalin": "Udhayanidhi Stalin is an Indian politician, film producer, and actor, serving as a minister in the Tamil Nadu government. He is the son of Chief Minister M. K. Stalin and a member of the ruling Dravida Munnetra Kazhagam (DMK) party.",
+  "M. K. Stalin": "M. K. Stalin is an Indian politician and the Chief Minister of Tamil Nadu. He leads the Dravida Munnetra Kazhagam (DMK), a major Dravidian political party, and is recognized for his role in state-level governance and legislative initiatives.",
+  "Dravida Munnetra Kazhagam (DMK)": "The Dravida Munnetra Kazhagam is a prominent regional political party in Tamil Nadu, India. Founded by C. N. Annadurai and rooted in Dravidian ideology, the DMK has historically advocated for social justice, state autonomy, and Tamil cultural identity.",
+  "Senior DMK Ministers": "Senior DMK ministers are experienced members of the Dravida Munnetra Kazhagam who serve in key portfolios within the Tamil Nadu government. They often hold significant influence in policy-making and the administration of various state departments.",
+  "All India Anna Dravida Munnetra Kazhagam (AIADMK)": "The All India Anna Dravida Munnetra Kazhagam is a major Dravidian political party in Tamil Nadu. Established by M. G. Ramachandran, it has served multiple terms in government and remains a principal rival to the DMK.",
+  "TN BSP Chief K Armstrong": "K Armstrong was the chief of the Tamil Nadu unit of the Bahujan Samaj Party (BSP). He was a state-level political figure involved in promoting the party’s interests and policies before his untimely death.",
+  "Bahujan Samaj Party (BSP)": "The Bahujan Samaj Party is a national political party in India, founded by Kanshi Ram. It primarily represents the interests of marginalized communities, focusing on social justice, the upliftment of the oppressed, and political empowerment.",
+  "Civilians": "Civilians are the general public or ordinary citizens not holding official military or governmental positions. They are often directly affected by governance, policy decisions, and public order in society.",
+  "Protestors": "Protestors are individuals or groups who publicly demonstrate, often to voice dissent, seek policy changes, or express grievances against authorities, organizations, or societal issues."
+}
+</entity_list>
+
+# input
+Country of event: {{ country }}
+Article: {{ article }}
