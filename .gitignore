@@ -13,12 +13,10 @@ project_config.mk
 
 API_KEYS
 
-workdir/
-workdir
 *.log
 
 # ChainLite
-prompt_logs.jsonl
+llm_logs.jsonl
 
 # pixi environments
 .pixi
