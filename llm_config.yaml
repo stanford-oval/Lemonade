@@ -1,0 +1,31 @@
+# This is a sample configuration file for using various LLM APIs with `ChainLite`.
+# Replace the placeholders with your actual API information. You can add more LLM providers and models as needed.
+# See ChainLite documentation at https://github.com/stanford-oval/chainlite/blob/main/llm_config.yaml for more details.
+
+prompt_dirs: # relative to the location of this file
+  - "./zest/prompts"
+
+litellm_set_verbose: false
+
+prompt_logging:
+  log_file: "./llm_logs.jsonl"
+
+llm_endpoints:
+  - api_base: https://[your-endpoint].openai.azure.com/
+    api_version: 2025-01-01-preview
+    api_key: "AZURE_OPENAI_API_KEY"
+    engine_map:
+      gpt-4o: azure/gpt-4o
+      gpt-4o-mini: azure/gpt-4o-mini
+      gpt-4.1: azure/gpt-4.1
+      gpt-4.1-mini: azure/gpt-4.1-mini
+      o3-mini: azure/o3-mini
+
+  - api_base: https://api.openai.com/v1
+    api_key: OPENAI_API_KEY
+    engine_map: # OpenAI models don't need the "openai/" prefix
+      gpt-4o: gpt-4o-2024-11-20
+      gpt-4o-mini: gpt-4o-mini
+      gpt-4.1: gpt-4.1
+      gpt-4.1-mini: gpt-4.1-mini
+      o3-mini: o3-mini
