@@ -4,7 +4,6 @@ from chainlite import llm_generation_chain, run_async_in_parallel
 
 from event_dataset.example import Example
 from event_dataset.schema import Schema
-from log_utils import logger
 from zest.pipeline import BaseProcessor
 
 
